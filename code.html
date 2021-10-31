@@ -56,7 +56,9 @@
 							<a class="nav-link active" aria-current="page" href="code.html">The Code</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" target="_blank" href="https://github.com/heaganhenry">Git Repo</a>
+							<a class="nav-link" target="_blank" href="https://github.com/heaganhenry/TacoCat"
+								>Git Repo</a
+							>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" target="_blank" href="#">About</a>
@@ -68,22 +70,76 @@
 		<!-- Main Section -->
 		<main class="flex-shrink-0">
 			<div class="container py-5 px-5 mt-5">
-				<span class="h2 border-bottom border-1 border-dark">The Code for APP NAME</span>
+				<span class="h2 border-bottom border-1 border-dark">The Code for TACO CAT</span>
 				<div class="row row-cols-1 row-cols-lg-2 gy-3">
 					<div class="col-lg-8">
 						<pre class="line-numbers">
                             <code class="language-javascript">
-                                // Call Hello World
-                                function helloWorld() {
-                                    alert("Hello World");
-                                }
-                            </code>
+								// controller function
+								function getString() {
+									// import string
+									let userString = document.getElementById("userString").value;
+									// pass string to logic function
+									let revObject = checkPalindrome(userString);
+									// pass logic output to display function
+									displayPalindrome(revObject);
+								}
+								
+								// logic function
+								function checkPalindrome(userString) {
+									// convert string to lowercase and remove special characters
+									let regex = /[^a-z0-9]/gi;
+									userString = userString.replace(regex, "");
+									userString = userString.toLowerCase();
+								
+									// reverse the string user a for loop
+									let revString = "";
+									for (let i = userString.length - 1; i >= 0; i--){
+										revString += userString[i];
+									}
+								
+									// created an object with a message property based on if input was a palindrome 
+									let revObject = {};
+									revObject.reversed = revString;
+									revObject.msg = (revString == userString) ? "Well done, you entered a palindrome!" : "Sorry! You did not enter a palindrome";
+								
+									return revObject;
+								}
+								
+								// display function
+								function displayPalindrome(revObject) {
+									// insert relevant messages into the web page
+									document.getElementById("alertHeader").innerHTML = revObject.msg;
+									document.getElementById("msg").innerHTML = `Your phrase reversed is "${revObject.reversed}"`;
+									// unhide the alert box
+									document.getElementById("alertBox").classList.remove("invisible");
+								}                            </code>
                         </pre>
 					</div>
 					<div class="col-lg-4">
-						<p style="font-size: large">The Code is structured in one function.</p>
-						<span class="h4" style="font-size: large">Hello World</span>
-						<p>helloWorld is a function that displays an alert with a message of "Hello World".</p>
+						<p style="font-size: large">The Code is structured in three functions.</p>
+						<span class="h4" style="font-size: large">getString</span>
+						<p>
+							getString is a function that retrieves the value of the string entered by the user on the
+							web page. This is achieved by using the native getElementById function and referencing the
+							unique id of the input field used in the web page. Being a controller function getString
+							also calls the below functions to control when they are run.
+						</p>
+						<span class="h4" style="font-size: large">checkPalindrome</span>
+						<p>
+							checkPalindrome is a function that first removes all special characters and converts the
+							user string to lowercase. The string is then reversed using a for loop. Finally the reversed
+							string is stored in an object, compared to the original string and finally an appropriate
+							message is stored in the object based on if the string was a palindrome or not.
+						</p>
+						<span class="h4" style="font-size: large">displayPalindrome</span>
+						<p>
+							displayPalindrome is a function that takes the object created in the above function and
+							inserts its contents into the web page. This is achieved by using the native getElementById
+							function and referencing the unique id of the element on the web page at which position the
+							output data should be displayed. Finally the alert box is unhidden so that it is displayed
+							on the web page.
+						</p>
 					</div>
 				</div>
 			</div>

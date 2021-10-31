@@ -55,7 +55,9 @@
 							<a class="nav-link" href="code.html">The Code</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" target="_blank" href="https://github.com/heaganhenry">Git Repo</a>
+							<a class="nav-link" target="_blank" href="https://github.com/heaganhenry/TacoCat"
+								>Git Repo</a
+							>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" target="_blank" href="#">About</a>
@@ -66,7 +68,44 @@
 		</nav>
 		<!-- Main Section -->
 		<main class="flex-shrink-0">
-			<div class="container"></div>
+			<div class="container mt-5">
+				<div class="row row-cols-1 row-cols-lg-2">
+					<div class="col">
+						<h1>TACO CAT: A Coding Project</h1>
+						<p class="lead">
+							Taco Cat is a palindrome. A palindrome is a word, phrase or sequence that reads the same
+							backwards as forward. Write a program that cecks if the phrase entered is a palindrome.
+						</p>
+					</div>
+					<div class="col">
+						<span class="h5 border-bottom border-warning">Enter a phrase or word to check</span>
+						<form class="row gy-3 gx-4">
+							<div class="col-12">
+								<input
+									id="userString"
+									type="text"
+									class="form-control"
+									placeholder="Tacocat"
+									value="Tacocat"
+									aria-label="Enter A String"
+								/>
+							</div>
+							<div class="col-12">
+								<button id="btnSubmit" type="button" class="btn btn-dark">Check It</button>
+							</div>
+							<div id="alertBox" role="alert" class="alert alert-warning mt-5 invisible fade show">
+								<span id="alertHeader" class="h4 alert-heading">
+									<!-- Insert header with Js -->
+								</span>
+								<hr />
+								<p id="msg" class="mb-0">
+									<!-- Insert message with Js -->
+								</p>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
 		</main>
 		<!-- Footer Section -->
 		<footer class="footer mt-auto py-3 bg-dark sticky-footer">
@@ -110,5 +149,8 @@
 		<script src="https://kit.fontawesome.com/5db21ba9c6.js" crossorigin="anonymous"></script>
 		<!-- Custom JS -->
 		<script src="js/site.js"></script>
+		<script>
+			document.getElementById("btnSubmit").addEventListener("click", getString);
+		</script>
 	</body>
 </html>
